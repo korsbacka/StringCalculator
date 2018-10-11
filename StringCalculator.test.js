@@ -35,3 +35,15 @@ test("new line should work as delimiter", () => {
 test("both nl and comma should work as delimiter", () => {
 	expect(Add("1\n2,3")).toBe(6);
 });
+
+test("checking if there is a negative number", () => {
+	expect(() => {
+		Add("-12,8")
+	}).toThrow();
+});
+
+test("checking if there is a neg number", () => {
+	expect(() => {
+		Add("-15\n-5,5")
+	}).toThrow();
+});
