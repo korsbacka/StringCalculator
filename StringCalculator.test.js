@@ -47,3 +47,11 @@ test("checking if there is a neg number", () => {
 		Add("-15\n-5,5")
 	}).toThrow();
 });
+
+test("checking if it sums up with over 1000", () => {
+	expect(Add("5,8,1001")).toBe(13);
+});
+
+test("checking if it sums up with 1000 and 2500", () => {
+	expect(Add("5,4,9,1000,2500")).toBe(1018);
+});

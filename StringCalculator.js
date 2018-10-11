@@ -29,7 +29,10 @@ function Add(numbers) {
 function Sum(numbers) {
 	var sum = 0;
 	for(var i = 0; i < numbers.length; i++) {
-		sum += parseInt(numbers[i]);
+		var number = parseInt(numbers[i]);
+		if(number <= 1000) {
+			sum += number;
+		}
 	}
 	return sum;
 };
