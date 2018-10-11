@@ -27,3 +27,11 @@ test("3 numbers should return the sum", () => {
 test("4 numbers should return the sum", () => {
 	expect(Add("1,2,3,4")).toBe(10);
 });
+
+test("new line should work as delimiter", () => {
+	expect(Add("1\n3\n4")).toBe(8);
+});
+
+test("both nl and comma should work as delimiter", () => {
+	expect(Add("1\n2,3")).toBe(6);
+});

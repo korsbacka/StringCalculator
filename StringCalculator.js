@@ -3,8 +3,9 @@ function Add(numbers) {
 		return 0;
 	}
 
-	else if(numbers.includes(",")) {
-		var arr = numbers.split(",");
+	else if(numbers.includes(",") || numbers.includes("\n")) {
+		var regex = new RegExp("[\n,]", "g");
+		var arr = numbers.split(regex);
 		return Sum(arr);
 	}
 
@@ -19,6 +20,6 @@ function Sum(numbers) {
 		sum += parseInt(numbers[i]);
 	}
 	return sum;
-}
+};
 
 module.exports = Add;
