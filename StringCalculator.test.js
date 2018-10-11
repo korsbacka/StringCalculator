@@ -55,3 +55,11 @@ test("checking if it sums up with over 1000", () => {
 test("checking if it sums up with 1000 and 2500", () => {
 	expect(Add("5,4,9,1000,2500")).toBe(1018);
 });
+
+test("new regex", () => {
+	expect(Add("//;\n2;5;7;8")).toBe(22);
+});
+
+test("new regex2", () => {
+	expect(Add("//==\n5==5==4==2")).toBe(16);
+});

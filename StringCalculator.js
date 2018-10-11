@@ -3,7 +3,7 @@ function Add(numbers) {
 		return 0;
 	}
 
-	if(NegCheck(numbers)) {
+	else if(NegCheck(numbers)) {
 		var regex = new RegExp("[\n,]", "g");
 		var arr = numbers.split(regex);
 		var negArr;
@@ -13,6 +13,19 @@ function Add(numbers) {
 			}
 		}
 		throw "Negatives not allowed: " + negArr;
+	}
+
+	else if(numbers.startsWith("//")) {
+		var newLinePos = numbers.indexOf("\n");
+		var delimiter = numbers.substring(2, newLinePos);
+		var toStartFrom = newLinePos + 1;
+		var newArr = numbers.substring(toStartFrom);
+
+		var regex = new RegExp("["+ delimiter + "\n,]", "g");
+
+		var splitArr = newArr.split(regex);
+
+		return Sum(splitArr);
 	}
 
 	else if(numbers.includes(",") || numbers.includes("\n")) {
