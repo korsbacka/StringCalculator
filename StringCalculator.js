@@ -3,16 +3,22 @@ function Add(numbers) {
 		return 0;
 	}
 
-	else if(NegCheck(numbers)) {
+	else if(numbers.includes("-")) {
 		var regex = new RegExp("[\n,]", "g");
 		var arr = numbers.split(regex);
-		var negArr;
+		var neg = "";
 		for(var i = 0; i < arr.length; i++) {
-			if(NegCheck(arr[i])) {
-				negArr += (", " + arr[i]);
+			if(arr[i].includes("-")) {
+				if(neg == "") {
+					neg += arr[i];
+				}
+				else {
+					neg += (", " + arr[i]);
+				}
 			}
 		}
-		throw "Negatives not allowed: " + negArr;
+
+		throw "Negatives not allowed: " + neg;
 	}
 
 	else if(numbers.startsWith("//")) {
@@ -49,12 +55,5 @@ function Sum(numbers) {
 	}
 	return sum;
 };
-
-function NegCheck(numbers) {
-	if(numbers.includes("-")) {
-		return true;
-	}
-	return false;
-}
 
 module.exports = Add;
